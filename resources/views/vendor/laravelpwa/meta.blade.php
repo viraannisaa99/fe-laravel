@@ -10,7 +10,7 @@
 
 <!-- Add to homescreen for Safari on iOS -->
 <meta name="apple-mobile-web-app-capable" content="{{ $config['display'] == 'standalone' ? 'yes' : 'no' }}">
-<meta name="apple-mobile-web-app-status-bar-style" content="{{  $config['status_bar'] }}">
+<meta name="apple-mobile-web-app-status-bar-style" content="{{ $config['status_bar'] }}">
 <meta name="apple-mobile-web-app-title" content="{{ $config['short_name'] }}">
 <link rel="apple-touch-icon" href="{{ data_get(end($config['icons']), 'src') }}">
 
@@ -31,15 +31,12 @@
 <meta name="msapplication-TileImage" content="{{ data_get(end($config['icons']), 'src') }}">
 
 <script type="text/javascript">
-    // Initialize the service worker
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('/serviceworker.js', {
             scope: '.'
-        }).then(function (registration) {
-            // Registration was successful
+        }).then(function(registration) {
             console.log('Laravel PWA: ServiceWorker registration successful with scope: ', registration.scope);
-        }, function (err) {
-            // registration failed :(
+        }, function(err) {
             console.log('Laravel PWA: ServiceWorker registration failed: ', err);
         });
     }

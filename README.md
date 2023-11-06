@@ -9,3 +9,5 @@ Project Setup:
 5. Add in .env:
 
    API_BACKEND = 'http://localhost:8002'
+
+6. Import collection to postman (Collections -> Button Import -> Drop file collection)
