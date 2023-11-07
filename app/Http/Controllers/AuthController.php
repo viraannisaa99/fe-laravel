@@ -38,7 +38,8 @@ class AuthController extends Controller
             Cookie::queue('token', $data['token'], 120);
             return redirect()->route(('posts.index'));
         } else {
-            return view('login');
+            $data = $res->json();
+            return back()->with('error', $data['error'] . '! ' . $data['messafe']);
         }
     }
 

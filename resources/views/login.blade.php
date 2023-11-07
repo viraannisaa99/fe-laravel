@@ -38,6 +38,13 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                                     </div>
+
+                                    @if (session('error'))
+                                        <div class="alert alert-danger">
+                                            {{ session('error') }}
+                                        </div>
+                                    @endif
+
                                     <form class="user" method="POST" action="{{ route('auth.loginproses') }}">
                                         @csrf
                                         <div class="form-group">
@@ -57,10 +64,10 @@
                                         <div class="form-group">
                                             <button class="btn btn-primary btn-user btn-block">Login</button>
                                         </div>
-
-
                                     </form>
+
                                     <hr>
+
                                     <div class="text-center">
                                         <a class="small" href="forgot-password.html">Forgot Password?</a>
                                     </div>
